@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCB Imperial Hotel</title>
+    <style>
+        /* Estilos Globais */
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37; /* Dourado elegante */
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: var(--text-color); background: var(--bg-color); scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Georgia', serif; font-weight: normal; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Navegação */
+        nav { background: var(--primary-color); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav .logo { font-size: 1.5rem; letter-spacing: 2px; color: var(--accent-color); font-family: 'Georgia', serif;}
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+        nav ul li a:hover { color: var(--accent-color); transition: 0.3s; }
+
+        /* Hero Section (Página Inicial) */
+        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 20px; }
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; }
+        .btn-reservar { background: var(--accent-color); color: var(--primary-color); padding: 15px 40px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .btn-reservar:hover { background: white; }
+
+        /* Sessões Gerais */
+        section { padding: 80px 5%; text-align: center; }
+        .section-title { font-size: 2.5rem; margin-bottom: 40px; color: var(--primary-color); }
+        
+        /* Acomodações */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        .card-content h3 { margin-bottom: 10px; color: var(--primary-color); }
+        .amenities { list-style: none; margin-top: 15px; font-size: 0.9rem; color: #666; }
+        .amenities li::before { content: '✓ '; color: var(--accent-color); font-weight: bold; }
+
+        /* Eventos e Localização */
+        .info-box { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto; }
+        
+        /* Contato */
+        .contact-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; text-align: left; max-width: 1000px; margin: 0 auto; }
+        .contact-info, .contact-form { flex: 1; min-width: 300px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
+        .contact-form button { background: var(--primary-color); color: white; padding: 12px 30px; border: none; cursor: pointer; transition: 0.3s; width: 100%; }
+        .contact-form button:hover { background: var(--accent-color); color: var(--primary-color); }
+
+        /* Footer */
+        footer { background: var(--primary-color); color: white; text-align: center; padding: 20px; font-size: 0.9rem; }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav ul { display: none; /* Em um site real, aqui entraria um menu hamburguer */ }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CCB Imperial</div>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#acomodacoes">Acomodações</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <h1>CCB Imperial Hotel</h1>
+        <p>A elegância encontra o conforto. Desfrute de uma experiência inesquecível no coração da cidade.</p>
+        <button class="btn-reservar" onclick="document.getElementById('contato').scrollIntoView();">Reservar Agora</button>
+    </header>
+
+    <section id="acomodacoes">
+        <h2 class="section-title">Nossas Acomodações</h2>
+        <div class="grid-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Suíte Standard">
+                <div class="card-content">
+                    <h3>Suíte Executiva</h3>
+                    <p>Espaço perfeito para descanso e produtividade com design moderno.</p>
+                    <ul class="amenities">
+                        <li>Ar-condicionado</li>
+                        <li>Wi-Fi de alta velocidade</li>
+                        <li>Smart TV 50"</li>
+                        <li>Frigobar abastecido</li>
+                        <li>Cofre digital</li>
+                        <li>Mesa de trabalho ergonômica</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Suíte Premium">
+                <div class="card-content">
+                    <h3>Suíte Imperial</h3>
+                    <p>Nossa acomodação mais luxuosa, com vista panorâmica e amplo espaço.</p>
+                    <ul class="amenities">
+                        <li>Ar-condicionado</li>
+                        <li>Wi-Fi Premium</li>
+                        <li>Smart TV 65"</li>
+                        <li>Frigobar & Adega</li>
+                        <li>Cofre digital</li>
+                        <li>Mesa de trabalho executiva</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="eventos" style="background: white;">
+        <h2 class="section-title">Eventos & Conferências</h2>
+        <div class="info-box">
+            <h3 style="margin-bottom: 15px; color: var(--accent-color);">Salas Modulares para o seu Negócio</h3>
+            <p>O CCB Imperial Hotel oferece infraestrutura completa para reuniões, conferências e eventos corporativos. Contamos com salas modulares equipadas com projetores de alta definição, sistema de som integrado e internet dedicada, além de serviço de coffee break personalizado.</p>
+        </div>
+    </section>
+
+    <section id="localizacao">
+        <h2 class="section-title">Localização Privilegiada</h2>
+        <div class="info-box">
+            <p><strong>Endereço:</strong> Av. Principal, 1000 - Centro Histórico</p>
+            <p style="margin-top: 15px;">Estamos localizados a poucos passos dos principais pontos turísticos da cidade. Fácil acesso a museus, teatros e ao melhor da gastronomia local. A apenas 15 minutos do aeroporto internacional.</p>
+        </div>
+    </section>
+
+<section id="contato" style="background: white; padding: 80px 5%;">
+        <h2 class="section-title" style="text-align: center; color: #1a1a1a; margin-bottom: 40px;">Faça sua Reserva</h2>
+        
+        <div class="contact-container" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1000px; margin: 0 auto;">
+            
+            <div class="contact-info" style="flex: 1; min-width: 300px;">
+                <h3 style="margin-bottom: 20px; color: #d4af37;">Atendimento Rápido</h3>
+                <p><strong>Telefone/WhatsApp:</strong> +55 (11) 99999-9999</p>
+                <p><strong>E-mail:</strong> reservas@ccbimperial.com.br</p>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">Preencha o formulário ao lado e você será redirecionado para o nosso WhatsApp com todos os detalhes da sua solicitação. Nossa equipe confirmará a disponibilidade e os valores em minutos!</p>
+            </div>
+
+            <div class="contact-form" style="flex: 1; min-width: 300px;">
+                <form id="formReserva" onsubmit="enviarParaWhatsApp(event)" style="display: flex; flex-direction: column; gap: 15px;">
+                    
+                    <input type="text" id="resNome" placeholder="Seu Nome Completo" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                    
+                    <select id="resQuarto" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit;">
+                        <option value="" disabled selected>Escolha a Acomodação</option>
+                        <option value="Suíte Executiva">Suíte Executiva</option>
+                        <option value="Suíte Imperial">Suíte Imperial</option>
+                    </select>
+
+                    <div style="display: flex; gap: 15px;">
+                        <div style="flex: 1;">
+                            <label style="font-size: 0.8rem; color: #666;">Check-in</label>
+                            <input type="date" id="resCheckin" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        <div style="flex: 1;">
+                            <label style="font-size: 0.8rem; color: #666;">Check-out</label>
+                            <input type="date" id="resCheckout" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                    </div>
+
+                    <input type="number" id="resHospedes" placeholder="Número de Hóspedes" min="1" max="6" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                    
+                    <button type="submit" style="background: #25D366; color: white; padding: 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1.1rem; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.031 0C5.494 0 .18 5.259.18 11.724c0 2.067.545 4.088 1.583 5.885L0 24l6.57-1.706c1.737.94 3.69 1.436 5.688 1.436 6.533 0 11.852-5.259 11.852-11.724C24.11 5.26 18.568 0 12.031 0zm0 21.57c-1.72 0-3.411-.453-4.897-1.308l-.35-.2-3.633.943.967-3.498-.222-.347C2.923 15.658 2.36 13.725 2.36 11.724c0-5.264 4.331-9.544 9.671-9.544 5.342 0 9.672 4.28 9.672 9.544 0 5.263-4.33 9.544-9.672 9.544zm5.308-7.182c-.29-.143-1.72-.838-1.987-.934-.268-.096-.462-.143-.656.143-.194.287-.751.934-.92 1.126-.17.191-.34.215-.632.072-.29-.143-1.226-.446-2.336-1.433-.864-.768-1.446-1.718-1.616-2.005-.17-.287-.018-.442.127-.585.13-.13.29-.335.436-.502.145-.168.194-.287.29-.479.097-.191.048-.36-.024-.502-.073-.143-.656-1.558-.898-2.133-.237-.56-.477-.484-.656-.492-.17-.008-.365-.01-.56-.01-.194 0-.51.072-.777.36-.267.287-1.02 1.002-1.02 2.443 0 1.44 1.044 2.834 1.19 3.025.145.191 2.054 3.167 4.975 4.407.695.295 1.238.47 1.662.602.698.22 1.334.188 1.838.114.564-.083 1.72-.693 1.963-1.362.242-.67.242-1.243.17-1.362-.073-.12-.267-.192-.558-.335z"/></svg>
+                        Enviar Reserva pelo WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 CCB Imperial Hotel. Todos os direitos reservados.</p>
+    </footer>
+<script>
+        function enviarParaWhatsApp(event) {
+            // Evita que a página recarregue ao enviar o formulário
+            event.preventDefault();
+
+            // 1. Número do WhatsApp do Hotel (coloque o número real aqui, com DDI e DDD, sem espaços ou traços)
+            const telefoneHotel = "5511999999999"; 
+
+            // 2. Captura os valores digitados no formulário
+            const nome = document.getElementById('resNome').value;
+            const quarto = document.getElementById('resQuarto').value;
+            const checkin = document.getElementById('resCheckin').value;
+            const checkout = document.getElementById('resCheckout').value;
+            const hospedes = document.getElementById('resHospedes').value;
+
+            // Formata as datas para o padrão brasileiro (DD/MM/AAAA)
+            const dataCheckin = new Date(checkin).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+            const dataCheckout = new Date(checkout).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+
+            // 3. Monta a mensagem formatada para o WhatsApp (usando * para negrito e %0A para quebra de linha)
+            const mensagem = `Olá, equipe do *CCB Imperial Hotel*! Gostaria de solicitar uma reserva com os seguintes detalhes:%0A%0A` +
+                             `👤 *Nome:* ${nome}%0A` +
+                             `🛏️ *Acomodação:* ${quarto}%0A` +
+                             `📅 *Check-in:* ${dataCheckin}%0A` +
+                             `📅 *Check-out:* ${dataCheckout}%0A` +
+                             `👥 *Hóspedes:* ${hospedes}%0A%0A` +
+                             `Aguardo o retorno para confirmar a disponibilidade e valores. Obrigado!`;
+
+            // 4. Cria o link do WhatsApp e redireciona o usuário
+            const linkWhatsApp = `https://wa.me/${telefoneHotel}?text=${mensagem}`;
+            
+            // Abre o link em uma nova aba
+            window.open(linkWhatsApp, '_blank');
+        }
+    </script>
+</body>
+</html>
